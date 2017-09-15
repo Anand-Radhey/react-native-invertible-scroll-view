@@ -71,13 +71,13 @@ let styles = StyleSheet.create({
   verticallyInverted: {
     flex: 1,
     transform: [
-      { scaleY: -1 },
+      { scaleY: -1, perspective: 1 },
     ],
   },
   horizontallyInverted: {
     flex: 1,
     transform: [
-      { scaleX: -1 },
+      { scaleX: -1, perspective: 1 },
     ],
   },
 });
