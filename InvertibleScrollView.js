@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import cloneReferencedElement from 'react-clone-referenced-element';
 import {
+  Platform,
   ScrollView,
   StyleSheet,
   View,
@@ -70,15 +71,17 @@ let InvertibleScrollView = createReactClass({
 let styles = StyleSheet.create({
   verticallyInverted: {
     flex: 1,
-    transform: [
-      { scaleY: -1, perspective: 1 },
-    ],
+    transform: Platform.select({
+          "ios":[{ scaleY: -1}],
+          "android":[{ scaleY: -1}, { perspective: 1280}]
+	  })
   },
   horizontallyInverted: {
     flex: 1,
-    transform: [
-      { scaleX: -1, perspective: 1 },
-    ],
+    transform: Platform.select({
+        "ios":[{ scaleX: -1}],
+        "android":[{ scaleX: -1}, { perspective: 1280}]
+    })
   },
 });
 
